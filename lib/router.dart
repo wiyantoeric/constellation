@@ -1,8 +1,11 @@
-import 'package:constellation/constellation_page.dart';
-import 'package:constellation/home_page.dart';
+import 'package:constellation/model/constellation.dart';
+import 'package:constellation/page/pages.dart';
 import 'package:go_router/go_router.dart';
 
+final constellationData = <Constellation>[];
+
 final router = GoRouter(
+  initialLocation: '/',
   routes: [
     GoRoute(
       path: '/',
@@ -11,8 +14,12 @@ final router = GoRouter(
     GoRoute(
       path: '/:constellation',
       builder: (context, state) {
+        final constellation = constellationData.where((element) =>
+            element.constellationName ==
+            state.pathParameters['constellation']!).first;
+
         return ConstellationPage(
-          // constellation: state.params['constellation']!,
+          constellation: constellation,
         );
       },
     ),
