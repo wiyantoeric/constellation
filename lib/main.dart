@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
       routerConfig: router,
       title: 'Constellation',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 209, 197, 113)),
         useMaterial3: true,
       ),
     );
