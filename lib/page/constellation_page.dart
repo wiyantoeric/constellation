@@ -1,3 +1,4 @@
+import 'package:constellation/common/tts.dart';
 import 'package:constellation/model/constellation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -33,7 +34,10 @@ class _ConstellationPageState extends State<ConstellationPage> {
                 shape: BoxShape.circle, // Make it a circular shape
               ),
               child: IconButton(
-                onPressed: () => context.go('/'),
+                onPressed: () async {
+                  await flutterTts.stop();
+                  context.go('/');
+                },
                 icon: const Icon(Icons.arrow_back),
               ),
             ),
@@ -87,6 +91,17 @@ class _ConstellationPageState extends State<ConstellationPage> {
                         '${widget.constellation.startDate.month}/${widget.constellation.startDate.day} - ${widget.constellation.endDate.month}/${widget.constellation.endDate.day}',
                         style: const TextStyle(
                           color: Colors.white,
+                        ),
+                      ),
+                      Container(
+                        decoration: const BoxDecoration(
+                          color:
+                              Colors.white, // Set the background color to white
+                          shape: BoxShape.circle, // Make it a circular shape
+                        ),
+                        child: IconButton(
+                          onPressed: () async => await flutterTts.speak(widget.constellation.desc),
+                          icon: const Icon(Icons.volume_up_sharp),
                         ),
                       ),
                     ],
