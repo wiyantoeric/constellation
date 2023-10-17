@@ -1,7 +1,10 @@
+import 'package:constellation/model/constellation.dart';
 import 'package:flutter/material.dart';
 
 class ConstellationPage extends StatefulWidget {
-  const ConstellationPage({super.key});
+  const ConstellationPage({super.key, required this.constellation});
+
+  final Constellation constellation;
 
   @override
   State<ConstellationPage> createState() => _ConstellationPageState();
