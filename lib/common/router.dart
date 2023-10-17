@@ -1,8 +1,6 @@
-import 'package:constellation/model/constellation.dart';
+import 'package:constellation/common/constellation_data.dart';
 import 'package:constellation/page/pages.dart';
 import 'package:go_router/go_router.dart';
-
-final constellationData = <Constellation>[];
 
 final router = GoRouter(
   initialLocation: '/',
