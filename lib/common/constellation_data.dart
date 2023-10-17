@@ -7,8 +7,8 @@ final constellationData = <Constellation>[
     logoUrl: 'assets/constellation_logo/aries.png',
     desc:
         'Aries individuals are known for their boldness and leadership qualities. They are often enthusiastic, confident, and competitive.',
-    startDate: DateTime(DateTime.now().year, DateTime.january, 21),
-    endDate: DateTime(DateTime.now().year, DateTime.february, 19),
+    startDate: DateTime(DateTime.now().year, DateTime.march, 21),
+    endDate: DateTime(DateTime.now().year, DateTime.april, 19),
   ),
   Constellation(
     constellationName: 'Taurus',
@@ -16,8 +16,8 @@ final constellationData = <Constellation>[
     logoUrl: 'assets/constellation_logo/taurus.png',
     desc:
         'Taureans are known for their practicality and determination. They tend to be reliable, patient, and have a strong sense of loyalty.',
-    startDate: DateTime(DateTime.now().year, DateTime.february, 20),
-    endDate: DateTime(DateTime.now().year, DateTime.march, 20),
+    startDate: DateTime(DateTime.now().year, DateTime.april, 20),
+    endDate: DateTime(DateTime.now().year, DateTime.may, 20),
   ),
   Constellation(
     constellationName: 'Gemini',
@@ -85,7 +85,7 @@ final constellationData = <Constellation>[
   Constellation(
     constellationName: 'Capricorn',
     imgUrl: 'assets/constellation_background/capricorn-constellation.jpg',
-    logoUrl: 'assets/constellation_logo/.png',
+    logoUrl: 'assets/constellation_logo/capricorn.png',
     desc:
         'Capricorns are disciplined and hardworking. They are often seen as responsible, ambitious, and practical.',
     startDate: DateTime(DateTime.now().year, DateTime.december, 22),

@@ -112,18 +112,23 @@ class _HomePageState extends State<HomePage> {
 
   void handleCta() {
     final name = _nameControlller.text;
-    final day = int.tryParse(_dayController.text);
-    final month = int.tryParse(_monthController.text);
+    final day = int.parse(_dayController.text);
+    final month = int.parse(_monthController.text);
 
-    final dateTime = DateTime(DateTime.now().year, month!, day!);
+    String userZodiac = "";
+    for (var constellation in constellationData) {
+      if ((month == constellation.startDate.month &&
+              day >= constellation.startDate.day) ||
+          (month == constellation.endDate.month &&
+              day <= constellation.endDate.day) ||
+          (month > constellation.startDate.month &&
+              month < constellation.endDate.month)) {
+        userZodiac = constellation.constellationName;
+        break; 
+      }
+    }
 
-    final constellationName = constellationData
-        .firstWhere((element) =>
-            element.startDate.isBefore(dateTime) ||
-            element.endDate.isAfter(dateTime))
-        .constellationName;
-
-    context.go('/$constellationName');
+    context.go('/$userZodiac');
   }
 
   @override
