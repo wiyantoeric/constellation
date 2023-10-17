@@ -12,10 +12,11 @@ final router = GoRouter(
     GoRoute(
       path: '/:constellation',
       builder: (context, state) {
-        final constellation = constellationData.where((element) =>
-            element.constellationName ==
-            state.pathParameters['constellation']!).first;
-
+        final constellation = constellationData
+            .where((element) =>
+                element.constellationName ==
+                state.pathParameters['constellation']!)
+            .first;
         return ConstellationPage(
           constellation: constellation,
         );
