@@ -1,4 +1,5 @@
 import 'package:constellation/common/tts.dart';
+import 'package:constellation/common/user_data.dart';
 import 'package:constellation/model/constellation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -30,15 +31,44 @@ class _ConstellationPageState extends State<ConstellationPage> {
             padding: const EdgeInsets.all(32),
             child: Container(
               decoration: const BoxDecoration(
-                color: Colors.white, // Set the background color to white
-                shape: BoxShape.circle, // Make it a circular shape
+                color: Colors.white,
+                shape: BoxShape.circle,
               ),
               child: IconButton(
                 onPressed: () async {
                   await flutterTts.stop();
-                  context.go('/');
+                  context.go('/home');
                 },
                 icon: const Icon(Icons.arrow_back),
+              ),
+            ),
+          ),
+          Positioned(
+            right: 0,
+            child: Padding(
+              padding: const EdgeInsets.all(32),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    user.name,
+                    style: const TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    "${user.birthdate.day}-${user.birthdate.month}-${user.birthdate.year}",
+                    style: const TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    "Age: ${DateTime.now().year - user.birthdate.year}",
+                    style: const TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -88,28 +118,29 @@ class _ConstellationPageState extends State<ConstellationPage> {
                       ),
                       const SizedBox(height: 12),
                       Text(
-                        '${widget.constellation.startDate.month}/${widget.constellation.startDate.day} - ${widget.constellation.endDate.month}/${widget.constellation.endDate.day}',
+                        '${widget.constellation.startDate.day}/${widget.constellation.startDate.month} - ${widget.constellation.endDate.day}/${widget.constellation.endDate.month}',
                         style: const TextStyle(
                           color: Colors.white,
                         ),
                       ),
+                      const SizedBox(height: 12),
                       Container(
                         decoration: const BoxDecoration(
-                          color:
-                              Colors.white, // Set the background color to white
-                          shape: BoxShape.circle, // Make it a circular shape
+                          color: Colors.white,
+                          shape: BoxShape.circle,
                         ),
                         child: IconButton(
-                          onPressed: () async => await flutterTts.speak(widget.constellation.desc),
+                          onPressed: () async =>
+                              await flutterTts.speak(widget.constellation.desc),
                           icon: const Icon(Icons.volume_up_sharp),
                         ),
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );
