@@ -7,6 +7,10 @@ final router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
+      builder: (context, state) => SplashPage(),
+    ),
+    GoRoute(
+      path: '/home',
       builder: (context, state) => HomePage(),
     ),
     GoRoute(
